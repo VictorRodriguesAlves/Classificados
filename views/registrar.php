@@ -19,6 +19,7 @@
                 if(isset($_SESSION['undefinedName'])){
                     echo '<span class="spanRequired">'.$_SESSION['undefinedName'].'</span>';
                     unset($_SESSION['undefinedName']);
+                    session_destroy();
                 }else{
                     echo '<span class="spanRequired">O nome deve ter ao menos 4 letras</span>';
                 }
@@ -32,6 +33,7 @@
                 if(isset($_SESSION['undefinedEmail'])){
                     echo '<span class="spanRequired">'.$_SESSION['undefinedEmail'].'</span>';
                     unset($_SESSION['undefinedEmail']);
+                    session_destroy();
                 }else{
                     echo '<span class="spanRequired">O email esta fora de padrão</span>';
                 }
@@ -46,6 +48,7 @@
                 if(isset($_SESSION['undefinedPass'])){
                     echo '<span class="spanRequired">'.$_SESSION['undefinedPass'].'</span>';
                     unset($_SESSION['undefinedPass']);
+                    session_destroy();
                 }else{
                     echo '<span class="spanRequired">A senha deve ter ao menos 8 digitos</span>';
                 }
