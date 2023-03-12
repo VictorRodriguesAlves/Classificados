@@ -1,0 +1,54 @@
+
+
+.container{
+    background-color: #F5F5F5;
+    height: 90vh;
+    display: flex;
+}
+
+.esquerda{
+    padding-top: 20vh;
+    padding-left: 1vw;
+    width: 50vw;
+    height: 90vh;
+}
+.direita{
+    padding-top: 20vh;
+    padding-left: 1vw;
+    width: 70vw;
+    height: 90vh;
+}
+
+.filtro{
+    border: 1px solid #898;
+    width: 17vw;
+    height: 35vh;
+
+}
+
+.aba{
+    display: inline-flex;
+    border: 1px solid;
+    width: 2.5vw;
+    height: 5vh;
+}
+
+.anuncio{
+    display: inline-flex;
+    border: 1px solid;
+    width: 50vw;
+    height: 12vh;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+
+}
+
+.descriçao{
+    display: block;
+    padding-top: 2px;
+}
+
+.qtAnuncios{
+    padding-bottom: 7vh;
+}
