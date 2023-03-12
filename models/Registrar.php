@@ -12,7 +12,7 @@ class Registrar extends Model{
 
                     $verificar = new Verificar;
 
-                    if($verificar->emailExists($email)){
+                    if(!$verificar->emailExists($email)){
 
                         $criptografar =  new Criptografia;
                         $senha = $criptografar->passEncripty($senha);
@@ -58,7 +58,7 @@ class Registrar extends Model{
 
         }else{
             $_SESSION['undefinedName'] = 'Informe um nome';
-            header('Location:../registrar');
+            echo '1';
     	    exit;
         }
 

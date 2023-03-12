@@ -17,7 +17,7 @@
                 <br><input type="text" name="nome" id="nome" placeholder="Seu nome" class="campos" oninput="nameValidate()">
                 <?php
                 if(isset($_SESSION['undefinedName'])){
-                    echo '<span class="spanRequired">'.$_SESSION['undefinedName'].'</span>';
+                    echo '<span class="spanRequired2">'.$_SESSION['undefinedName'].'</span>';
                     unset($_SESSION['undefinedName']);
                     session_destroy();
                 }else{
@@ -31,7 +31,7 @@
                 <br><input type="email" name="email" id="email" placeholder="seuemail@email.com" class="campos" oninput="emailValidate()">
                 <?php
                 if(isset($_SESSION['undefinedEmail'])){
-                    echo '<span class="spanRequired">'.$_SESSION['undefinedEmail'].'</span>';
+                    echo '<span class="spanRequired2">'.$_SESSION['undefinedEmail'].'</span>';
                     unset($_SESSION['undefinedEmail']);
                     session_destroy();
                 }else{
@@ -46,7 +46,7 @@
                 <br><input type="password" name="senha" id="senha" placeholder="********" minlength="8" maxlength="20" class="campos" oninput="passValidate()">
                 <?php
                 if(isset($_SESSION['undefinedPass'])){
-                    echo '<span class="spanRequired">'.$_SESSION['undefinedPass'].'</span>';
+                    echo '<span class="spanRequired2">'.$_SESSION['undefinedPass'].'</span>';
                     unset($_SESSION['undefinedPass']);
                     session_destroy();
                 }else{
@@ -58,9 +58,8 @@
             <br>
                 <label for="foto" class="fotoLabel">
                     Sua Foto:
-                    <br><input type="file" name="image" id="foto" accept=".jpg, .jpeg, .png" class="campos"/>
+                    <br><input type="file" name="image" id="foto" accept=".jpg, .jpeg, .png" class="campos" oninput="imageValidate()">
                     <span class="spanRequired">Arquivo não suportado</span>
-                    <span class="spanRequired2">É necessario inserir uma foto</span>
                 </label>
             <br>
             <input type="submit" value="Registrar-se">
