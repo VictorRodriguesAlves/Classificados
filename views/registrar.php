@@ -34,6 +34,10 @@
                     echo '<span class="spanRequired2">'.$_SESSION['undefinedEmail'].'</span>';
                     unset($_SESSION['undefinedEmail']);
                     session_destroy();
+                }elseif(isset($_SESSION['emailExist'])){
+                    echo '<span class="spanRequired2">'.$_SESSION['emailExist'].'</span>';
+                    unset($_SESSION['emailExist']);
+                    session_destroy();
                 }else{
                     echo '<span class="spanRequired">O email esta fora de padrão</span>';
                 }

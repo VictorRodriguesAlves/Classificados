@@ -40,6 +40,7 @@ class Registrar extends Model{
 
                     }else{
                         header('Location:../registrar');
+                        $_SESSION['emailExist'] = 'Informe um email não cadastrado';
                         exit;
                         }
 
