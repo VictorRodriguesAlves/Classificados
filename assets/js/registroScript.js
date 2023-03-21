@@ -13,12 +13,14 @@ form.addEventListener('submit', (event) => {
     passValidate();  
 
     
-    if(spans[3].style.display == ''){
+    if(spans[3].style.display == 'none' || spans[3].style.display == '' ){
         if(nameValidate() && emailValidate() && passValidate() ){
 
             form.submit();
     
         }
+    }else {
+        console.log('oi')
     }
 
 })
