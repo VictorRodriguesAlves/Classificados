@@ -11,7 +11,7 @@ class Imagens extends Model {
 
             if($verificar->emailExists($email)){
 
-                if($foto = "defaultImage.png"){
+                if($foto == "defaultImage.png"){
 
                     $sql = "UPDATE usuarios SET arquivo = :nome, data = NOW() WHERE email = :email";
                 

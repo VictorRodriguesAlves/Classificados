@@ -2,10 +2,10 @@
 
 class Registrar extends Model{
 
-    public function addUser($nome, $email, $senha, $foto = []){
+    public function addUser($nome, $email, $senha, $foto){
 
-        if(isset($foto) && empty($foto)){
-            $foto = "defaultImage.png";          
+        if($foto["name"] == null){
+            $foto = "defaultImage.png";        
         }
 
         if($nome){
