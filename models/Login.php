@@ -22,29 +22,29 @@ class Login {
                         $_SESSION['email_usuario'] = $usuarioInfo['email'];
                         $_SESSION['nome_usuario'] = $usuarioInfo['nome'];
                         $_SESSION['foto_usuario'] = 'assets/images/usuarios/' . $usuarioInfo['arquivo'];
-                        header('Location:../home');
+                        header("Location:".BASE_URL."home");
                         exit;
                     }else{
                         $_SESSION['wrongPass'] = 'Informe a senha correta';
-                        header('Location:../login');
+                        header("Location:".BASE_URL."login");
                         exit;
                     }
 
                 }else{
                     $_SESSION['invalidEmail'] = 'Informe um email cadastrado';
-                    header('Location:../login');
+                    header("Location:".BASE_URL."login");
                     exit;
                 }
 
             }else{
                 $_SESSION['undefinedPass'] = 'Informe uma Senha';
-                header('Location:../login');
+                header("Location:".BASE_URL."login");
                 exit;
             }
 
         }else{
             $_SESSION['undefinedEmail'] = 'Informe um email';
-            header('Location:../login');
+            header("Location:".BASE_URL."login");
             exit;
         }
     }

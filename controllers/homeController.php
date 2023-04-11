@@ -19,7 +19,7 @@ class homeController extends Controller{
     public function logout(){
             unset($_SESSION['logado']);
             session_destroy();
-            header('Location:../home');
+            header("Location:".BASE_URL."home");
             exit;
 
     }

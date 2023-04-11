@@ -79,4 +79,22 @@ class Imagens extends Model {
         }
     }
  
+    public function addImageAnuncio($id, $fotos){
+        for($i = 0; $i < sizeof($fotos['name']); $i++){
+
+            $extensao = strtolower(substr($fotos['name'][$i], -4));
+            $novo_nome = md5(time()+rand()) . $extensao;
+            $diretorio = 'assets/images/anuncios/';
+    
+            move_uploaded_file($fotos['tmp_name'][$i], $diretorio.$novo_nome);
+            $sql = "UPDATE anuncios SET arquivo = CONCAT(arquivo, '/', ?) WHERE id = ?";
+            $sql = Model::getConn()->prepare($sql);
+
+            $sql->bindValue(1, $novo_nome);
+            $sql->bindValue(2, $id);
+            $sql->execute();
+            
+       }
+    }
+
 }

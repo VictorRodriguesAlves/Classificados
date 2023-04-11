@@ -1,7 +1,4 @@
 <?php
-
-use app\model\Conexao;
-
 class Verificar extends Model{
 
     public function emailExists($email){
