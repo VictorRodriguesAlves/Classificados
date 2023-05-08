@@ -14,6 +14,11 @@
     <a href="home"><input type="submit" value="Voltar"></a>
 
     <a href="criarAnuncio"><input type="submit" value="Criar anuncio"></a>
-    
+
+    <?php
+        $var = new Anuncio;
+        var_dump($var->exibirAnunciosPerfil());
+    ?>
+
 </body>
 </html>

@@ -29,7 +29,8 @@
 .aba{
     display: inline-flex;
     border: 1px solid;
-    width: 2.5vw;
+    width: auto;
+    padding: 10px;
     height: 5vh;
 }
 
@@ -41,6 +42,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 10px;
+    padding: 10px;
 
 }
 

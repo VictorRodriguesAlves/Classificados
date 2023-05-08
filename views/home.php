@@ -1,5 +1,16 @@
+<?php
+$anuncios = new Anuncio;
+
+$paginas = isset($_GET['paginas']) ? intval($_GET['paginas']) : 1;
+$results = $anuncios->exibirTodos(abs(3), abs($paginas));
+$ultimaPagina =  $anuncios->contagemPaginas();
+
+
+?>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +31,7 @@
     <div class="container">
             <div class="esquerda">
 
-                <h2 class="qtAnuncios">Temos hoje x anuncios</h2>
+                <h2 class="qtAnuncios">Temos 7 anuncios</h2>
 
                 <div class="filtro">
                     <h2>Preços:</h2>
@@ -36,32 +47,53 @@
             <div class="direita">
                 <h1 class="qtAnuncios">Anuncios:</h1>
 
+            <?php foreach($results as $anuncios): ?>
+
                 <a href="">
                     <div class="anuncio descriçao">
-                        <span>anuncio 1</span>
-                        <span>R$ xxx,xx</span>
+                        <span><?= $anuncios['titulo'] ?></span>
+                        <span>R$ <?= $anuncios['valor'] ?></span>
                         <br>
-                        <span>descriçao do anuncio 1</span>
+                        <span><?= $anuncios['descricao'] ?></span>
                     </div>
                 </a>
 
                 <br>
-
-                <a href="">
-                    
-                    <div class="anuncio descriçao">
-                        <span>anuncio 2</span>
-                        <span>R$ xxx,xx</span>
-                        <br>
-                        <span class="descriçao">descriçao do anuncio 2</span>
-                    </div>
-
-                </a>
+                <?php endforeach; ?>
 
                 <br>
-                <span class="aba">1</span>
-                <span class="aba">2</span>
-                <span class="aba">...</span>
+                <?php
+                    if ($paginas <= 1) {
+                        echo '
+                            <a class="aba" href="?paginas=1">primeira</a>
+                            <a class="aba" href="?paginas=' . $paginas . '">' . $paginas . '</a>
+                            <a class="aba" href="?paginas=' . ($paginas+1) . '">' . ($paginas+1) . '</a>
+                            ';
+                            if($paginas+2 <= $ultimaPagina){
+                                echo '
+                                    <a class="aba" href="?paginas=' . ($paginas+2) . '">' . ($paginas+2) . '</a>
+                                ';
+                            }
+                            echo '
+                            <a class="aba" href="?paginas=' . ($ultimaPagina) . '">ultimo</a>
+                        ';
+                    }elseif($paginas >=2){
+                        echo '
+                            <a class="aba" href="?paginas=1">primeira</a>
+                            <a class="aba" href="?paginas=' . $paginas-1 . '">' . $paginas-1 . '</a>
+                            <a class="aba" href="?paginas=' . ($paginas) . '">' . ($paginas) . '</a>
+                            ';
+                            if($paginas+1 <= $ultimaPagina){
+                                echo '
+                                    <a class="aba" href="?paginas=' . ($paginas+1) . '">' . ($paginas+1) . '</a>
+                                ';
+                            }
+                            echo '
+                            <a class="aba" href="?paginas=' . ($ultimaPagina) . '">ultimo</a>
+                        ';
+                    }
+
+                ?>
 
             </div>
     </div>

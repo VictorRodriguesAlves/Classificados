@@ -1,5 +1,6 @@
 <?php
 class Anuncio extends Model{
+
     public function criarAnuncio($titulo, $descricao, $valor, $fotos){
 
         if($titulo){
@@ -56,6 +57,46 @@ class Anuncio extends Model{
             exit;
         }
 
+    }
+
+    public function exibirAnunciosPerfil(){
+
+        $sql = "SELECT * FROM anuncios WHERE autor = ?";
+        $sql = Model::getConn()->prepare($sql);
+        
+        $sql->bindValue(1, $_SESSION['id_usuario']);
+        
+        $sql->execute();
+        
+        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+
+    }
+
+
+    public function exibirTodos($limite, $pagina){
+        if ($pagina === '' OR $pagina <= 0) {
+            $pagina = 1;
+        }
+    
+        $inicio = ($limite * $pagina) - $limite;
+        $sql = "SELECT * FROM anuncios LIMIT $inicio, $limite";
+        $sql = Model::getConn()->prepare($sql);
+        $sql->execute();
+        
+        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function contagemPaginas(){
+        $sql = "SELECT count(*) FROM anuncios";
+        $sql = Model::getConn()->prepare($sql);
+        $sql->execute();
+    
+        $result = $sql->fetch(PDO::FETCH_NUM);
+        $total_anuncios = $result[0];
+        $total_paginas = ceil($total_anuncios / 3); 
+        return $total_paginas;
     }
 
 }
