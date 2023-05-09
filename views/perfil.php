@@ -17,7 +17,6 @@
 
     <?php
         $var = new Anuncio;
-        var_dump($var->exibirAnunciosPerfil());
     ?>
 
 </body>

@@ -43,8 +43,9 @@
     margin-bottom: 5px;
     border-radius: 10px;
     padding: 10px;
-
+    justify-content: space-between;
 }
+
 
 .descriçao{
     display: block;
@@ -54,3 +55,13 @@
 .qtAnuncios{
     padding-bottom: 7vh;
 }
+
+
+.imageAnuncio {
+    border: 1px solid;
+    justify-content: space-between;
+    width: 100px;
+    height: 50px;
+    margin-left: 85%;
+    
+  }

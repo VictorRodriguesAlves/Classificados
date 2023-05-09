@@ -99,4 +99,13 @@ class Anuncio extends Model{
         return $total_paginas;
     }
 
+    public function contagemAnuncios(){
+        $sql = "SELECT count(*) FROM anuncios";
+        $sql = Model::getConn()->prepare($sql);
+        $sql->execute();
+    
+        $result = $sql->fetch(PDO::FETCH_NUM);
+        return $result;
+    }
+
 }

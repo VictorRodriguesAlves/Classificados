@@ -4,7 +4,7 @@ $anuncios = new Anuncio;
 $paginas = isset($_GET['paginas']) ? intval($_GET['paginas']) : 1;
 $results = $anuncios->exibirTodos(abs(3), abs($paginas));
 $ultimaPagina =  $anuncios->contagemPaginas();
-
+$anunciosQuantia = $anuncios->contagemAnuncios();
 
 ?>
 
@@ -31,7 +31,7 @@ $ultimaPagina =  $anuncios->contagemPaginas();
     <div class="container">
             <div class="esquerda">
 
-                <h2 class="qtAnuncios">Temos 7 anuncios</h2>
+                <h2 class="qtAnuncios">Temos <?= $anunciosQuantia[0]?> anuncios</h2>
 
                 <div class="filtro">
                     <h2>Preços:</h2>
@@ -55,6 +55,7 @@ $ultimaPagina =  $anuncios->contagemPaginas();
                         <span>R$ <?= $anuncios['valor'] ?></span>
                         <br>
                         <span><?= $anuncios['descricao'] ?></span>
+                        <img src="assets/images/anuncios<?= $anuncios['arquivo']?>" alt="Imagem do anuncio" class="imageAnuncio">
                     </div>
                 </a>
 
