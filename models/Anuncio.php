@@ -59,9 +59,12 @@ class Anuncio extends Model{
 
     }
 
-    public function exibirAnunciosPerfil(){
-
-        $sql = "SELECT * FROM anuncios WHERE autor = ?";
+    public function exibirAnunciosPerfil($limite, $pagina){
+        if ($pagina === '' OR $pagina <= 0) {
+            $pagina = 1;
+        }
+        $inicio = ($limite * $pagina) - $limite;
+        $sql = "SELECT * FROM anuncios WHERE autor = ? LIMIT $inicio, $limite";
         $sql = Model::getConn()->prepare($sql);
         
         $sql->bindValue(1, $_SESSION['id_usuario']);

@@ -28,18 +28,18 @@ body{
     color: whitesmoke;
 }
 
-.esquerda{
+.esquerdaHeader{
     width: 88%;
     height: 100%;
 }
 
-.direita{
+.direitaHeader{
 
     display: flex;
     flex-direction: row;
 }
 
-.direita h1{
+.direitaHeader h1{
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -56,7 +56,7 @@ a, a:hover, a:visited, a:focus, a:active{
     
 }
 
-.direita h1 a:hover{
+.direitaHeader h1 a:hover{
     transition-delay: 30ms;
     color:#CDC9C9;
 
@@ -111,4 +111,51 @@ a, a:hover, a:visited, a:focus, a:active{
 
 }
 
+.container{
+    display: flex;
+    flex-direction: row;
+}
 
+.esquerda{
+    width: 50vw;
+
+}
+.direita{
+    margin-top: 7vh;
+    width: 50vw;
+}
+
+.anuncio{
+    display: inline-flex;
+    border: 1px solid;
+    width: 48vw;
+    height: 13vh;
+    margin-top: 6px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.descriçao{
+    display: block;
+    padding-top: 2px;
+}
+
+.imageAnuncio {
+    border: 1px solid;
+    justify-content: space-between;
+    width: 100px;
+    height: 50px;
+    margin-left: 85%;
+  }
+
+.aba{
+
+    text-align: center;
+    display: inline-flex;
+    border: 1px solid;
+    width: auto;
+    padding: 10px;
+    height: 5vh;
+}
