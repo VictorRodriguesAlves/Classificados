@@ -3,25 +3,25 @@ const campos = document.querySelectorAll('.campos');
 const spans = document.querySelectorAll('.spanRequired');
 const emailRegex = /^[\w+.]+@\w+\.\w{2,}(?:\.\w{3})?$/;
 
+console.log(campos)
 
 form.addEventListener('submit', (event) => {
     event.preventDefault(); //desabilita o submit
     
     //executa as verificações
-    nameValidate();
-    emailValidate();
-    passValidate();  
+    tituloValido();
+    descricaoValida();
+    valorValido();
+    imageValidate();  
 
     
-    if(spans[3].style.display == 'none' || spans[3].style.display == '' ){
-        if(nameValidate() && emailValidate() && passValidate() ){
+
+        if(tituloValido() && descricaoValida() && valorValido() && imageValidate()){
 
             form.submit();
     
         }
-    }else {
-        console.log('oi')
-    }
+
 
 })
 
@@ -37,35 +37,34 @@ function removeError(index){
 
 }
 
-
-function nameValidate(){
-    if(campos[0].value.length < 4){
-        setError(0);
-        return false;
-
-    }else{
+function tituloValido(){
+    if(campos[0].value.length >= 3){
         removeError(0);
         return true;
+    }else{
+        setError(0);
+        return false;
     }
 }
 
-function emailValidate(){
-    if(!emailRegex.test(campos[1].value)){
-        setError(1);
-        return false;
-    }else{
+function descricaoValida(){
+    if(campos[1].value.length >= 9){
         removeError(1);
         return true;
+    }else{
+        setError(1);
+        return false;
+        
     }
 }
 
-function passValidate(){
-    if(campos[2].value.length < 8){
-        setError(2);
-        return false;
-    }else{
+function valorValido(){
+    if(campos[2].value > -1 && campos[2].value != 0){
         removeError(2);
         return true;
+    }else{
+        setError(2);
+        return false;
     }
 }
 
@@ -97,4 +96,3 @@ function imageValidate(){
         return false;
     }
 }
-
